@@ -29,7 +29,7 @@
 - @flexshopper/logger
 - @flexshopper/node-sdk
 - Session
-- Joi Validatio
+- Joi Validation
 - @flexshopper/config
 - Swagger
 - Redis
