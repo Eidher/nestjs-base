@@ -1,0 +1,12 @@
+{
+    "port": 3050,
+    "flexSdk": {
+        "host": "http://internal-KongBeta-Cluster-1812491279.us-east-1.elb.amazonaws.com:8000"
+    },
+    "redis": {
+        "path": "ec-betaservices.uc4lmt.ng.0001.use1.cache.amazonaws.com"
+    },
+    "pagerduty": {
+        "enabled": true
+    }
+}

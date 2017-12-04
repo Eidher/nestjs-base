@@ -1,6 +1,6 @@
-import { Component } from "@nestjs/common";
-import * as Joi from "joi";
-import { StringUtils } from "../../utils/services/string-utils.service";
+import { Component } from '@nestjs/common';
+import * as Joi from 'joi';
+import { StringUtils } from '../../utils/services/string-utils.service';
 
 @Component()
 export class ValidationService {
@@ -9,10 +9,8 @@ export class ValidationService {
 
     async validate(value: any, className: string, ...args: any[]) {
 
-        const schemaName = this.getSchemaName(className)
-
+        const schemaName = this.getSchemaName(className);
         const folder = this.getFolderName(schemaName);
-
         const schema = await import(`../schemas/${folder}/${schemaName}.schema`);
 
         return await Joi.validate(value, schema.default, ...args);

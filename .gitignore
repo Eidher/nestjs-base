@@ -19,3 +19,7 @@ npm-debug.log
 
 # dist
 /dist
+
+.envrc
+.nodemon.json
+.tslint.json

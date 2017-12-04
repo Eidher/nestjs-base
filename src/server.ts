@@ -4,17 +4,16 @@ import { ApplicationModule } from './app/app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { RolesGuard } from './common/guards/roles.guard';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
-import { StringUtils } from './utils/services/string-utils.service';
-import { ValidationService } from './validation/services/validation.service';
 import { ValidationPipe } from './common/pipes/validation.pipe';
-
+import { ConfigService } from './common/services/config.service';
 
 async function bootstrap() {
-  
+
   const app = await NestFactory.create(ApplicationModule);
-  
+  const config = new ConfigService();
+
   app.use(bodyParser.json());
-  
+
   app.useGlobalFilters(new HttpExceptionFilter());
 
   app.useGlobalPipes(new ValidationPipe());
@@ -22,8 +21,8 @@ async function bootstrap() {
   app.useGlobalGuards(new RolesGuard(new Reflector()));
 
   app.useGlobalInterceptors(new TransformInterceptor());
-  
-  await app.listen(3050);
+
+  await app.listen(config.port);
 }
 
 bootstrap();
