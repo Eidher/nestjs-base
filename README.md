@@ -25,6 +25,15 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework **TypeScript** starter repository. 
+
+- @flexshopper/logger
+- @flexshopper/node-sdk
+- Session
+- Joi Validation
+- @flexshopper/config
+- Swagger
+- Redis
+- ...
   
 ## Installation
 
