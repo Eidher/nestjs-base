@@ -17,5 +17,16 @@ module.exports = joi.object({
     }),
     pagerduty: joi.object({
         enabled: joi.boolean().default(false)
+    }),
+    session: joi.object({
+        secret: joi.string().default('eyhr!iw-$e42iu'),
+        resave: joi.boolean().default(false),
+        saveUninitialized: joi.boolean().default(false),
+        cookie: joi.object({
+            maxAge: joi.number().default(14400000), // expires in 4 hours
+            path: joi.string().default('/'),
+            httpOnly: joi.boolean().default(false),
+            domain: joi.string().default('localhost'),
+        })
     })
 });

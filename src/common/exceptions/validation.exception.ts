@@ -1,30 +1,28 @@
-import { HttpException } from "@nestjs/core/exceptions/http-exception";
-import { HttpStatus } from "@nestjs/common";
-
+import { HttpException } from '@nestjs/core/exceptions/http-exception';
+import { HttpStatus } from '@nestjs/common';
 
 export class ValidationException extends HttpException {
-    constructor(errors) {
+    constructor(validationErrors) {
 
         let response;
 
         const getErrors = (errors) => {
             return errors.map((error) => {
                 if (error.children.length) {
-                    return { [error.property]: getErrors(error.children)}
-                } 
-    
+                    return { [error.property]: getErrors(error.children)};
+                }
+
                 return { [error.property]: error.constraints };
             });
-        }
+        };
 
-        if (Array.isArray(errors)) {
-            response = getErrors(errors);
+        if (Array.isArray(validationErrors)) {
+            response = getErrors(validationErrors);
         } else {
-            response = errors || 'Validation error.';
+            response = validationErrors || 'Validation error.';
         }
 
         super(response, HttpStatus.BAD_REQUEST);
     }
 
-    
 }

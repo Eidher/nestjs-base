@@ -1,5 +1,6 @@
 import * as conf from '@flexshopper/flex-config';
 import { Component } from '@nestjs/common';
+import { IConfigSession } from '../interfaces/config-session.interface';
 
 @Component()
 export class ConfigService {
@@ -18,6 +19,14 @@ export class ConfigService {
 
     public get pagerduty(): {enabled: boolean} {
         return conf.pagerduty;
+    }
+
+    public get redis(): {path: string, port: number} {
+        return conf.redis;
+    }
+
+    public get session(): IConfigSession {
+        return conf.session;
     }
 
 }

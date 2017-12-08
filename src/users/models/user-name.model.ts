@@ -1,10 +1,10 @@
-import { BaseModel } from "../../common/models/base.model";
+import { BaseModel } from '../../common/models/base.model';
 
-export class UserName extends BaseModel {
+export class UserName extends BaseModel<UserName> {
 
-    readonly first: string;
-    
-    readonly middle: string;
+    public first: string;
 
-    readonly last: string;
+    public middle: string;
+
+    public last: string;
 }

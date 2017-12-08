@@ -1,17 +1,13 @@
-import { UserName } from "./user-name.model";
-import { BaseModel } from "../../common/models/base.model";
+import { UserName } from './user-name.model';
+import { BaseModel } from '../../common/models/base.model' ;
+import { Type } from 'class-transformer';
 
-export class User extends BaseModel {
-    
-    readonly name: UserName;
-    
-    readonly email: string;
+export class User extends BaseModel<User> {
 
-    readonly username: string;
+    @Type(() => UserName)
+    public name: UserName;
 
-    readonly password: string;
+    public email: string;
 
-    readonly hearAbout: string;
-
-    readonly marketingEmail: string;
+    public password: string;
 }
